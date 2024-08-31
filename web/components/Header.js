@@ -7,7 +7,7 @@ import { PiNewspaperFill } from "react-icons/pi";
 import { IoLogOut, IoCloseCircleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { gsap } from 'gsap';
-
+import Link from 'next/link';
 const bebasNeue = Merriweather({
   subsets: ["latin-ext"],
   weight: ["400"],
@@ -123,7 +123,7 @@ const Header = () => {
               ref={dashboardRef}
             >
               <RiDashboardFill className="text-2xl text-gray-700 bg-[#DBDADF]" />
-              <span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Dashboard</span>
+              <Link href="/Dashboard" className="bg-[#DBDADF]"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Dashboard</span></Link>
             </div>
             <div
               className="flex items-center gap-x-4 p-4 bg-[#DBDADF] cursor-pointer"
