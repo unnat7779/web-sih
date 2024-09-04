@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState, useEffect } from "react";
 import { Merriweather } from "@next/font/google";
 import { RiDashboardFill } from "react-icons/ri";
@@ -8,17 +9,18 @@ import { IoLogOut, IoCloseCircleOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { gsap } from 'gsap';
 import Link from 'next/link';
+
 const bebasNeue = Merriweather({
   subsets: ["latin-ext"],
   weight: ["400"],
 });
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [showMenu, setShowMenu] = useState(false);
-  const maindashboardRef = useRef(null);
-  const hamburgerRef = useRef(null);
-  const closeRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
+  const maindashboardRef = useRef();
+  const hamburgerRef = useRef();
+  const closeRef = useRef();
   const dashboardRef = useRef(null);
   const employeeRef = useRef(null);
   const userRef = useRef(null);
@@ -26,7 +28,7 @@ const Header = () => {
   const offsiteRef = useRef(null);
   const leaveRef = useRef(null);
   const logoutRef = useRef(null);
-
+  const blurryRef = useRef(null);
   useEffect(() => {
     // Hamburger button timeline
     const tlHamburger = gsap.timeline({ paused: true })
@@ -49,12 +51,11 @@ const Header = () => {
     } else {
       tlClose.reverse();
     }
-
   }, [showMenu, isVisible]);
 
   const handleMouseEnter = (ref) => {
-    gsap.fromTo(ref.current, 
-      { scale: 1, boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)' }, 
+    gsap.fromTo(ref.current,
+      { scale: 1, boxShadow: '0px 0px 0px rgba(0, 0, 0, 0)' },
       { scale: 1.05, boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)', duration: 0.3 }
     );
   };
@@ -68,45 +69,56 @@ const Header = () => {
     });
   };
 
-  const handleClose = () => {
-    const tlClose = gsap.timeline()
-      .to(maindashboardRef.current, {
-        opacity: 0,
-        y: -50,
-        duration: 0.5,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          setIsVisible(false);
-          setShowMenu(true);
-        },
-      });
-    tlClose.play();
-  };
-
   const handleMenuClick = () => {
     setShowMenu(false);
     setIsVisible(true);
-    const tlMenu = gsap.timeline()
-      .fromTo(maindashboardRef.current,
-        { opacity: 0, y: -50 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.inOut' }
-      );
-    tlMenu.play();
+  
+    // Animate the blur effect
+    // gsap.to(blurryRef.current, {
+    //   filter: "blur(200px)",
+    //   pointerEvents: "none",
+    //   duration: 0.5,
+    //   ease: 'power2.inOut'
+    // });
+  
+    // Animate the header component
+    
+    // console.log("first")
   };
+  
+  const handleClose = () => {
+    gsap.to(maindashboardRef.current, {
+      opacity: 0,
+      y: -50,
+      duration: 0.5,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        setIsVisible(false);
+        setShowMenu(true);
+  
+        
+      }
+    });
+  };
+  
+  
 
   return (
     <div>
+      {isVisible && <div id="blurry" ref={blurryRef} className="fixed top-0 left-0 w-full h-full bg-[#f0f0f0cf] bg-opacity-50 backdrop-blur-sm z-10" />}
       {showMenu && (
-        <div className="fixed top-4 left-4 cursor-pointer" ref={hamburgerRef} onClick={handleMenuClick}>
-          <GiHamburgerMenu className="text-3xl" />
+        <div className="bg-white rounded-full flex items-center ">
+          <div className=" top-7 left-4 cursor-pointer absolute z-20 bg-white rounded-full flex items-cente p-2" ref={hamburgerRef} onClick={handleMenuClick}>
+          <GiHamburgerMenu  className="text-3xl" />
+          </div>
         </div>
       )}
-      
+
       {isVisible && (
-        <div ref={maindashboardRef} className="w-[40vh] h-[100vh] bg-[#DBDADF]">
-          <button onClick={handleClose}>
-            <IoCloseCircleOutline className="bg-[#DBDADF] text-3xl absolute top-4 left-2 cursor-pointer" ref={closeRef} />
-          </button>
+        <div ref={maindashboardRef} className="w-[40vh] h-[100vh] bg-[#DBDADF] fixed z-20">
+          <div onClick={handleClose}  ref={closeRef}>
+            <IoCloseCircleOutline className="bg-[#DBDADF] text-3xl absolute top-4 left-2 cursor-pointer" />
+          </div>
           <div className="w-[25vh] m-auto">
             <img src="/gail.png" alt="GAIL Logo" className="bg-[#DBDADF]" />
           </div>
@@ -141,7 +153,7 @@ const Header = () => {
               ref={userRef}
             >
               <FaUserPlus className="text-2xl text-gray-700 bg-[#DBDADF]" />
-              <span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">User Creation</span>
+                <Link href="/User_create" className="bg-[#DBDADF]"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">User Creation</span></Link>
             </div>
             <div
               className="flex items-center gap-x-4 p-4 bg-[#DBDADF] cursor-pointer"

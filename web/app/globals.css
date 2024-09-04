@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  background-color: #F0F0F0;
+body{
+  background-color: #f0f0f0cf;
+}
+
+/* globals.css */
+
+
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400&display=swap');
+
+.font-roboto-serif {
+  font-family: 'Roboto Serif', serif;
+}
+.bg-custom {
+  background-image: url('https://img.freepik.com/premium-vector/futuristic-abstract-background_193066-553.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725235200&semt=ais_hybrid'); /* Ensure this path is correct */
+  background-size: cover;
+  background-position: center;
 }

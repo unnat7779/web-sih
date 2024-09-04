@@ -11,6 +11,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@next/font": "^14.2.7",
+    "@react-google-maps/api": "^2.19.3",
     "gsap": "^3.12.5",
     "next": "14.2.7",
     "react": "^18",
