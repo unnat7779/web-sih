@@ -105,7 +105,7 @@ const Header = () => {
 
   return (
     <div>
-      {isVisible && <div id="blurry" ref={blurryRef} className="fixed top-0 left-0 w-full h-full bg-[#f0f0f0cf] bg-opacity-50 backdrop-blur-sm z-10" />}
+      {isVisible && <div id="blurry" ref={blurryRef} className="fixed top-0 left-0 w-full h-full bg-[#f0f0f086] bg-opacity-50 backdrop-blur-[2px] z-10" />}
       {showMenu && (
         <div className="bg-white rounded-full flex items-center ">
           <div className=" top-7 left-4 cursor-pointer absolute z-20 bg-white rounded-full flex items-cente p-2" ref={hamburgerRef} onClick={handleMenuClick}>

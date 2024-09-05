@@ -5,9 +5,14 @@
 body{
   background-color: #f0f0f0cf;
 }
-
+.page-specific-background {
+  background-color: #ffd699; /* Set this to the color you want for the specific page */
+}
 /* globals.css */
-
+.leaflet-container {
+  height: 40vh;
+  width: 100wh;
+}
 
 /* styles/globals.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400&display=swap');
