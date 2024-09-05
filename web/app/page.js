@@ -26,7 +26,7 @@ const page = () => {
       {/* <Add_emp/> */}
       {/* <Landing/> */}
       {/* <Map/> */}
-      <Graph/>
+      {/* <Graph/> */}
       
     </>
   )

@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { FaEyeSlash, FaRegEye } from 'react-icons/fa'; // Font Awesome icons
-import { keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { FaEyeSlash, FaRegEye } from "react-icons/fa"; // Font Awesome icons
+import { keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
+import ShimmerButton from "@/components/magicui/shimmer-button";
 
 const fillAnimation = keyframes`
   0% { transform: scale(0); opacity: 0.5; }
@@ -39,48 +40,58 @@ const Circle = styled.div`
   border-radius: 50%;
   border-top: 8px solid green;
   animation: spin 2s linear infinite, fill 3s forwards;
-  
+
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  
+
   @keyframes fill {
-    0% { transform: scale(0); opacity: 0.5; }
-    100% { transform: scale(1); opacity: 0; }
+    0% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
   }
 `;
 
 const AdminLogin = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
   const [loginSuccessful, setLoginSuccessful] = useState(false);
   const router = useRouter();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Dummy login check
-    if (userId === 'SIH' && password === 'FRIENDS') {
+    if (userId === "SIH" && password === "FRIENDS") {
       setLoginSuccessful(true);
-      // Redirect after animation
+      router.prefetch("/Dashboard"); // Prefetch the dashboard page
       setTimeout(() => {
-        router.push('/Dashboard');
-      }, 3000);
+        router.push("/Dashboard");
+      }, 1000);
     } else {
-      // Handle failed login attempt
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#ffd699] rounded-lg scale-125">
+    <div className="min-h-screen flex items-center justify-center bg-transparent rounded-lg scale-125">
       <div className="bg-[#fff7cf] p-8  border-[3px] border-[#c7450e] rounded-lg shadow-xl w-full max-w-md relative">
         <h1 className="text-2xl font-bold mb-6 text-center">Welcome back!</h1>
         <form onSubmit={handleLogin}>
           <div className="mb-4 bg-[#fff7cf]">
-            <label className="block text-gray-700 text-sm font-bold mb-2 bg-[#fff7cf]" htmlFor="userId">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2 bg-[#fff7cf]"
+              htmlFor="userId"
+            >
               User ID
             </label>
             <input
@@ -94,11 +105,14 @@ const AdminLogin = () => {
             />
           </div>
           <div className="mb-4 relative">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
-              type={passwordVisible ? 'text' : 'password'}
+              type={passwordVisible ? "text" : "password"}
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -141,7 +155,7 @@ const AdminLogin = () => {
         </form>
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-700">
-            Don't have an account?{' '}
+            Don't have an account?{" "}
             <a href="#" className="text-blue-500 hover:underline">
               Sign up
             </a>
