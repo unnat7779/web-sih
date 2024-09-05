@@ -11,6 +11,7 @@ import Emp_info_2 from '@/components/Emp_info_2'
 import Add_emp from '@/components/Add_emp'
 import Landing from '@/components/Landing'
 import Map from '@/components/Map'
+import Graph from '@/components/Graph'
 const page = () => {
   
   return (
@@ -24,7 +25,8 @@ const page = () => {
       <Emp_info_2/> */}
       {/* <Add_emp/> */}
       {/* <Landing/> */}
-      <Map/>
+      {/* <Map/> */}
+      <Graph/>
       
     </>
   )
