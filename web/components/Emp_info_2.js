@@ -1,90 +1,77 @@
+// Emp_info_2.jsx
+"use client";
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
-const Emp_info_2 = () => {
+const Emp_info_2 = ({ employee }) => {
   return (
     <div className="bg-[#f8e58d] m-10 inline-flex pr-4 py-4 rounded-xl items-center whitespace-pre-wrap relative">
       <div>
-        <FaUserCircle className="bg-transparent m-4  text-[150px] " />
+        <FaUserCircle className="bg-transparent m-4 text-[150px]" />
       </div>
       <div className="flex flex-col ml-3">
-        <div className=" absolute top-2">
-          <div className="flex  ">
-            <h1 className="text-2xl font-bold m-4 text-nowrap">
-              Unnat Agrawal
-            </h1>
+        <div className="absolute top-2">
+          <div className="flex">
+            <h1 className="text-2xl font-bold m-4 text-nowrap">{employee.name}</h1>
             <h1 className="text-xl font-semibold m-4 font-mono text-[#605b5b]">
-              {" "}
-              E02022
+              {employee.employeeId}
             </h1>
           </div>
-          <div className="flex flex-col -mt-2 ">
+          <div className="flex flex-col -mt-2">
             <div className="flex gap-[70px]">
-              <span className="ml-4">Job Title</span>
-              <span className="">Analyst</span>
+              <span className="ml-4">Check-In</span>
+              <span>{employee.checkIn}</span>
             </div>
             <div className="flex gap-[44px]">
-              <span className="ml-4">Department</span>
-              <span>Sales</span>
+              <span className="ml-4">Check-Out</span>
+              <span>{employee.checkOut}</span>
             </div>
             <div className="flex gap-[70px]">
-              <span className="ml-4">Location</span>
-              <span>Delhi</span>
+              <span className="ml-4">Working Hours</span>
+              <span>{employee.workingHours}</span>
             </div>
           </div>
         </div>
-        <div className="bg-[#fff4b7] p-3 rounded-xl -mb-4 mt-[120px] ">
+        <div className="bg-[#fff4b7] p-3 rounded-xl -mb-4 mt-[120px]">
           <div className="flex">
             <h1 className="text-lg font-bold ml-4 text-nowrap">Contact</h1>
           </div>
-          <div className="flex flex-col ">
+          <div className="flex flex-col">
             <div className="flex gap-[70px]">
               <span className="ml-4">Email</span>
-              <span className="">: priyanshisingh_example@gmail.com</span>
+              <span>: {employee.email}</span>
             </div>
             <div className="flex gap-[44px]">
               <span className="ml-4">Mob. No.</span>
-              <span>: 1234567890</span>
+              <span>: {employee.mobile}</span>
             </div>
             <div className="flex gap-[62px]">
-              <span className="ml-4">Adress</span>
-              <span>: x Lane y city , delhi -110087 </span>
+              <span className="ml-4">Address</span>
+              <span>: {employee.address}</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col  ml-9">
-        <div className="bg-[#dcb02c] rounded-xl ">
+      <div className="flex flex-col ml-9">
+        <div className="bg-[#d8a12e] rounded-xl">
           <div className="flex">
-            <h1 className="text-xl font-bold m-4 text-nowrap">
-              Total Attendance -
-            </h1>
-            <span className="text-2xl font-bold m-4  text-nowrap font-mono">
-              29
-            </span>
+            <h1 className="text-xl font-bold m-4 text-nowrap">Total Attendance -</h1>
+            <span className="text-2xl font-bold m-4 text-nowrap font-mono">{employee.totalAttendance}</span>
           </div>
           <div className="flex -mt-5">
-            <h1 className="text-xl font-bold m-4 text-nowrap">
-              Number of Leaves -
-            </h1>
-            <span className="text-2xl font-bold mt-4 mb-4 mr-4 ml-2 text-nowrap font-mono">
-              01
-            </span>
+            <h1 className="text-xl font-bold m-4 text-nowrap">Number of Leaves -</h1>
+            <span className="text-2xl font-bold mt-4 mb-4 mr-4 ml-2 text-nowrap font-mono">{employee.leaves}</span>
           </div>
         </div>
-        <div className="flex mt-4 justify-between ">
-          <div className="bg-[#ffce49] flex flex-col justify-center items-center rounded-xl px-3 h-20">
+        <div className="flex mt-4 justify-between">
+          <div className="bg-[#d2a123] flex flex-col justify-center items-center rounded-xl px-3 h-20">
             <h1 className="text-xl font-medium m-4 text-nowrap">Onsite </h1>
-            <h1 className="text-4xl font-bold m-4 text-nowrap -mt-3 font-mono">
-              26
-            </h1>
+            <h1 className="text-4xl font-bold m-4 text-nowrap -mt-3 font-mono">{employee.onsite}</h1>
           </div>
-          <div className="bg-[#ffce49] flex flex-col justify-center items-center rounded-xl px-3 h-20">
+          <div className="bg-[#d2a123] flex flex-col justify-center items-center rounded-xl px-3 h-20">
             <h1 className="text-xl font-medium m-4 text-nowrap">Offsite </h1>
-            <h1 className="text-4xl font-bold m-4 text-nowrap -mt-3 font-mono">
-              26
-            </h1>
+            <h1 className="text-4xl font-bold m-4 text-nowrap -mt-3 font-mono">{employee.offsite}</h1>
           </div>
         </div>
         <div className="mt-2 m-auto mt-5">

@@ -1,14 +1,15 @@
-// Emp_info.jsx
+
 "use client"
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Map from "./Map";
 
-const Emp_info = ({ employee }) => {
+const Offlocation = ({ employee }) => {
   return (
     <div className="bg-[#f9d2c3] m-10 inline-flex pr-4 py-4 rounded-xl items-center whitespace-pre-wrap relative">
       <div>
-        <FaUserCircle className="bg-transparent m-4 text-[150px]" />
+        <Map className="bg-transparent m-4 text-[150px]" />
       </div>
       <div className="flex flex-col ml-3">
         <div className="absolute top-2">
@@ -87,4 +88,4 @@ const Emp_info = ({ employee }) => {
   );
 };
 
-export default Emp_info;
+export default Offlocation;

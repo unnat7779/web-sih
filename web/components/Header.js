@@ -143,7 +143,7 @@ const Header = () => {
               ref={employeeRef}
             >
               <FaDatabase className="text-2xl text-gray-700 bg-[#DBDADF]" />
-              <span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Employees Data</span>
+              <Link href="/Emptdata"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Employees Data</span></Link>
             </div>
             <div
               className="flex items-center gap-x-4 p-4 bg-[#DBDADF] cursor-pointer"
@@ -189,7 +189,7 @@ const Header = () => {
             ref={logoutRef}
           >
             <IoLogOut className="text-2xl text-gray-700 bg-[#DBDADF]" />
-            <span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Logout</span>
+            <Link href="/Landing_Page" ><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Logout</span></Link>
           </div>
         </div>
       )}
