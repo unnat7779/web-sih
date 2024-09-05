@@ -11,7 +11,7 @@ const Landing = () => {
       {/* <VantaBackground /> */}
       <div className="relative z-10 flex justify-between bg-transparent px-5 box-border items-center">
         <div >
-          <div className="bg-transparent flex flex-col items-center justify-center -mt-6 left-[50px] absolute top-[18px]">
+          <div className="bg-transparent flex flex-col items-center justify-center -mt-6 left-[50px] z-5 absolute top-[18px]">
             <p className="text-[70px] font-semibold text-gray-800 bg-transparent">
               GEO
             </p>
@@ -19,10 +19,10 @@ const Landing = () => {
               NIRIKSHAN
             </p>
           </div>
-          <div className="absolute top-[175px] left-[175px]">
+          <div className="absolute z-5 top-[175px] left-[175px]">
             <TypewriterComponent />
           </div>
-          <div className="absolute -bottom-[22px] scale-125 shadow-lg">
+          <div className="absolute -bottom-[22px] z-5 scale-125 shadow-lg">
             <img src="./bgimg.png" alt="Background" />
           </div>
         </div>

@@ -119,13 +119,13 @@ const Add_emp = () => {
               />
             </div>
             <div className="flex gap-4 mt-4 items-center justify-center">
-              <button type="submit" className="bg-blue-500 text-white p-2 rounded text-xl px-2">
+              <button type="submit" className="bg-blue-500 text-white p-2 rounded text-xl px-2 hover:scale-105 hover:shadow-md">
                 Submit
               </button>
               <button
                 type="button"
                 onClick={handleCancel}
-                className="bg-red-500 text-white p-2 rounded text-xl px-2"
+                className="bg-red-500 text-white p-2 rounded text-xl px-2 hover:scale-105 hover:shadow-md"
               >
                 Cancel
               </button>

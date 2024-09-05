@@ -28,15 +28,21 @@ const page = () => {
   };
 
   return (
-    <div className="bg-[#f0f0f0cf]" onMouseMove={handleMouseMove}>
-      <div className="bg-[#f0f0f0cf]">
-        <div className="flex justify-between mx-5">
+    <div
+      className="relative min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('https://png.pngtree.com/thumb_back/fh260/background/20190814/pngtree-abstract-background-image_298809.jpg')",
+      }}
+      onMouseMove={handleMouseMove}
+    >
+      <div className="bg-white bg-opacity-50 backdrop-blur-lg">
+        <div className="flex justify-between items-center justify-items-center mx-5">
           <div className="flex items-center gap-x-4 p-2 cursor-pointer ml-[40%] mt-2">
-            <span className={`text-5xl  space-x-2 font-extrabold text-gray-800 ${bebasNeue.className}`}>
+            <span className={`text-5xl space-x-2 font-extrabold text-gray-800 ${bebasNeue.className}`}>
               Dashboard
             </span>
           </div>
-          <div className="flex items-center gap-x-4 px-3 py-4 rounded-3xl bg-[#DBDADF] cursor-pointer mt-2">
+          <div className="flex items-center gap-x-4 px-3 py-2 h-fit rounded-3xl bg-[#DBDADF] cursor-pointer mt-2">
             <span className="text-xl font-semibold text-gray-800">
               Admin Profile
             </span>
@@ -44,7 +50,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-around mt-4">
+      <div className="flex justify-around mt-6">
         <HoverCard>
           <Total_emp />
         </HoverCard>
@@ -56,18 +62,18 @@ const page = () => {
         </HoverCard>
       </div>
       <div className="flex justify-around mt-7">
-        <div className="border-[2px] border-[#393737] flex flex-col items-center h-fit p-2">
+        <div className="border-[2px] border-[#393737] flex flex-col items-center h-fit p-2 bg-white bg-opacity-50 backdrop-blur-lg">
           <h1 className="text-lg font-semibold">
             Total Number of Onsite and Offsite Employees vs Time
           </h1>
           <Graph />
         </div>
-        <div className="border-[2px] border-[#393737]">
+        <div className="border-[2px] border-[#393737] bg-white bg-opacity-50 backdrop-blur-lg">
           <Map />
         </div>
       </div>
       <div>
-        <RecentLogs/>
+        <RecentLogs />
       </div>
     </div>
   );
@@ -102,13 +108,8 @@ const HoverCard = ({ children }) => {
       style={{
         transform,
         transition: "transform 0.2s ease",
-        width: "fit", // Adjust the width as needed
-        height: "fit", // Adjust the height as needed
-        // Match the border styles
-        
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        width: "fit-content", // Adjust the width as needed
+        height: "fit-content", // Adjust the height as needed
         background: "#f0f0f0cf",
         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
       }}
