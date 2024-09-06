@@ -102,17 +102,17 @@ const Header = () => {
 
   return (
     <div>
-      {isVisible && <div id="blurry" ref={blurryRef} className="fixed top-0 left-0 w-full h-full bg-[#f0f0f086] bg-opacity-50 backdrop-blur-[2px] z-19" />}
+      {isVisible && <div id="blurry" ref={blurryRef} className="fixed top-0 left-0 w-full h-full bg-[#f0f0f086] bg-opacity-50 backdrop-blur-[2px] z-49" />}
       {showMenu && (
         <div className="bg-white rounded-full flex items-center ">
-          <div className=" top-4 left-4 cursor-pointer absolute z-20 bg-white rounded-full flex items-cente p-2" ref={hamburgerRef} onClick={handleMenuClick}>
+          <div className=" top-4 left-4 cursor-pointer absolute z-50 bg-white rounded-full flex items-cente p-2" ref={hamburgerRef} onClick={handleMenuClick}>
             <GiHamburgerMenu className="text-3xl" />
           </div>
         </div>
       )}
 
       {isVisible && (
-        <div ref={maindashboardRef} className="w-[40vh] h-[100vh] bg-[#DBDADF] fixed z-20">
+        <div ref={maindashboardRef} className="w-[40vh] h-[100vh] bg-[#DBDADF] fixed z-50">
           <div onClick={handleClose} ref={closeRef}>
             <IoCloseCircleOutline className="bg-[#DBDADF] text-3xl absolute top-4 left-2 cursor-pointer" />
           </div>
@@ -143,7 +143,7 @@ const Header = () => {
               ref={employeeRef}
             >
               <FaDatabase className="text-2xl text-gray-700 bg-[#DBDADF]" />
-              <Link href="/Emptdata"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Employees Data</span></Link>
+              <Link href="/Empdata"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Employees Data</span></Link>
             </div>
             <div
               className="flex items-center gap-x-4 p-4 bg-[#DBDADF] cursor-pointer"
@@ -170,7 +170,7 @@ const Header = () => {
               ref={offsiteRef}
             >
               <MdFactory className="text-2xl text-gray-700 bg-[#DBDADF]" />
-              <span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Offsites</span>
+              <Link href="/Offsite"><span className="text-lg font-semibold text-gray-800 bg-[#DBDADF]">Offsites</span></Link>
             </div>
             <div
               className="flex items-center gap-x-4 p-4 bg-[#DBDADF] cursor-pointer"
